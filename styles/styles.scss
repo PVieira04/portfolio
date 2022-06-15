@@ -8,6 +8,7 @@
 :root {
     --color-primary: #191d2b;
     --color-secondary: #27AE60;
+    --color-sec-shadow: rgba(39, 174, 95, 0.9);
     --color-white: #FFF;
     --color-black: #000;
     --color-grey0: #f8f8f8;
@@ -24,6 +25,7 @@
 .light-mode {
     --color-primary: #FFF;
     --color-secondary: #F56692;
+    --color-sec-shadow: rgba(245,102,146, 0.9);
     --color-white: #454e56;
     --color-black: #000;
     --color-grey0: #f8f8f8;
@@ -520,8 +522,8 @@ section {
         }
         .hover-items {
             width: 100%;
-            height: 100%;
-            background-color: var(--color-secondary);
+            height: 98%;
+            background-color: var(--color-sec-shadow);
             position: absolute;
             left: 0;
             top: 0;
@@ -734,12 +736,14 @@ section {
     }
 }
 
+
 /* Independent components*/
 .btn-cont {
     display: flex;
     align-self: flex-start;
 }
 .main-btn {
+    left: 0;
     border-radius: 30px;
     color: inherit;
     font-weight: 600;
@@ -749,6 +753,7 @@ section {
     align-self: flex-start;
     align-items: center;
     overflow: hidden;
+    opacity: 1;
     .btn-text {
         padding: 0 2rem;
     }
@@ -776,6 +781,12 @@ section {
     &:hover::before, &focus::before {
         transform: scale(1);
     }
+}
+
+.sendemail {
+    z-index: 2;
+    padding: 0 90px;
+    border-radius: 25px;
 }
 
 .main-title {

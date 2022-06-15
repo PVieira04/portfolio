@@ -371,7 +371,7 @@
                         </div>
                     </div>
                     <div class="right-contact">
-                        <form onsubmit="sendEmail(); reset(); return false;" action="mailto:patrick@pvieira.co.uk" class="contact-form" method="POST" enctype="multipart/form-data">
+                        <form onsubmit="sendEmail(); reset(); return false;" class="contact-form" method="POST" enctype="multipart/form-data" id="myForm">
                             <div class="input-control i-c-2">
                                 <input type="text" id="name" required placeholder="Your name">
                                 <input type="email" id="email" required placeholder="Your e-mail">
@@ -382,9 +382,9 @@
                             <div class="input-control">
                                 <textarea name="" id="message" cols="15" rows="8" required placeholder="Your message"></textarea>
                             </div>
-                            <div class="submit-btn">
-                                <button type="submit" >Submit</button>
-                                <a href="#" class="main-btn" type="submit" value="Submit">
+                            <button type="submit">submit</button>
+                            <div class="submit-btn submit">
+                                <a href="#" class="main-btn">
                                     <span class="btn-text">Submit</span>
                                     <span class="btn-icon"><i class="fa-solid fa-paper-plane"></i></span>
                                 </a>
@@ -421,17 +421,26 @@
         function sendEmail() {
             Email.send({
                 SecureToken : "27d2e1bd-4245-4ca7-9e63-3e38599133c4",
+                //Host : "smtp.gmail.com",
+                //Username : "",
+                //Password : "",
                 To : 'patrick@pvieira.co.uk',
                 From : document.getElementById("email").value,
                 Subject : "New Contact Form Submission",
                 Body : "Name: " + document.getElementById("name").value
                     + "<br> Email: " + document.getElementById("email").value 
                     + "<br> Subject: " + document.getElementById("subject").value
-                    + "<brw> Message: " + document.getElementById("message").value
+                    + "<br> Message: " + document.getElementById("message").value
             }).then(
               message => alert("Your message has been sent. I will be in touch shortly.")
             );
         }
+    </script>
+    <script>
+        const myForm = document.getElementById("myForm");
+        document.querySelector(".submit").addEventListener("click", function(){
+          myForm.submit();
+        });
     </script>
 </body>
 </html>
